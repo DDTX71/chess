@@ -1,5 +1,7 @@
 #include <allegro5/allegro.h>
 
+#include "board.h"
+
 class Game {
 public:
 	Game();
@@ -10,6 +12,7 @@ private:
 	ALLEGRO_DISPLAY* display;
 	ALLEGRO_TIMER* timer;
 	ALLEGRO_EVENT_QUEUE* event_queue;
+	Board board;
 	bool running = false;
 	void run();
 	void update();

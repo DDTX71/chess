@@ -5,7 +5,7 @@
 const float FPS = 60.0;
 
 Game::Game() {
-	display = al_create_display(800, 600);
+	display = al_create_display(1000, 800);
 	if (!display)
 		std::cout << "Failed to create a display!\n";
 
@@ -49,20 +49,19 @@ void Game::run() {
 			render();
 			updated = false;
 		}
-
-		al_clear_to_color(al_map_rgb(133, 133, 133));
-		al_flip_display();
 	}
 }
 
 void Game::check_events(ALLEGRO_EVENT event) {
-
+	board.check_events(event);
 }
 
 void Game::update() {
-	std::cout << "Updated!";
+	board.update();
 }
 
 void Game::render() {
-
+	al_clear_to_color(al_map_rgb(133, 133, 133));
+	board.render();
+	al_flip_display();
 }
